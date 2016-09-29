@@ -2,9 +2,6 @@ package Main;
 
 public class Encrypt {
 	
-	String key = "Test";
-	String input = "Test123 Test123, Dit is een testbericht.";
-	
 	final int segLenght = 2;
 	
 	public String encryptString(String input, String pw){

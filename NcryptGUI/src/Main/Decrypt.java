@@ -2,10 +2,6 @@ package Main;
 
 public class Decrypt {
 	
-	
-	String key = "Test";
-	String input = "e{EGJ2h{EGJ>6X21y.xvz}~E";
-	
 	final int segLenght = 2;
 	
 	public String decrypt(String input, String pw){
