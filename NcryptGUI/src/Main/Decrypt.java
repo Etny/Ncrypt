@@ -4,14 +4,13 @@ public class Decrypt {
 	
 	final int segLenght = 2;
 	
-	public String decrypt(String input, String pw){
+	public String decryptString(String input, String pw){
 		return decryptFullString(input, pw);
 	}
 
 	private String decryptFullString(String input, String key1){
 		StringBuilder output = new StringBuilder();
 		String key2 = genSubKey(key1);
-		
 		
 		while(input.length() > 0){
 			int endIndex = input.length() >=segLenght?segLenght:input.length();
@@ -37,9 +36,7 @@ public class Decrypt {
 	private void applyKey(byte[] data, String key){
 		int result = 1;
 		
-		for(byte b : key.getBytes()){
-			result *= b;
-		}
+		for(byte b : key.getBytes()) result *= b;
 		
 		String resultData = Math.abs(result)+"";
 		
@@ -58,7 +55,6 @@ public class Decrypt {
 		
 		for(int i=0; i<data.length; i++)
 			data[i] += data[data.length-1-i];
-		
 		
 		return new String(data);
 	}

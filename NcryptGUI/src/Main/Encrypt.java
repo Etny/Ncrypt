@@ -12,7 +12,6 @@ public class Encrypt {
 		StringBuilder output = new StringBuilder();
 		String key2 = genSubKey(key1);
 		
-		
 		while(input.length() > 0){
 			int endIndex = input.length() >=segLenght?segLenght:input.length();
 			String encrypted = encrypt(input.substring(0, endIndex), key1, key2);
@@ -49,7 +48,6 @@ public class Encrypt {
 			
 			data[id] = (byte) (data[id]+num);
 		}
-
 	}
 	
 	private String genSubKey(String key){
@@ -57,7 +55,6 @@ public class Encrypt {
 		
 		for(int i=0; i<data.length; i++)
 			data[i] += data[data.length-1-i];
-		
 		
 		return new String(data);
 	}

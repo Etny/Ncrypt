@@ -88,7 +88,7 @@ public class Main implements ActionListener{
 		if(enButton == e.getSource()){
 			outputField.setText(encrypt.encryptString(inputField.getText(), pwField.getText()));
 		}else if(deButton == e.getSource()){
-			outputField.setText(decrypt.decrypt(inputField.getText(), pwField.getText()));
+			outputField.setText(decrypt.decryptString(inputField.getText(), pwField.getText()));
 		}else if(copyButton == e.getSource()){
 			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(outputField.getText()), null);
 		}
