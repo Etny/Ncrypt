@@ -1,12 +1,70 @@
-*.class
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @Etny
+ Watch 1,821
+  Star 41,409
+ Fork 16,434 github/gitignore
+ Code  Pull requests 169  Projects 0  Pulse  Graphs
+Branch: master Find file Copy pathgitignore/Global/Eclipse.gitignore
+988fd7a  on Mar 6
+@shiftkey shiftkey Merge pull request #1807 from rlee287/eclipse-recommender
+20 contributors @aroben @shiftkey @tyutyutyu @drasolka @rlee287 @mimibar @fhemberger @leandrodeleite @jcarsique @segfly @harshadsabne @gAmUssA @DenisGorbachev @pangratz @defunkt @sveyret @arinto @apetresc @Danimoth @Utumno
+RawBlameHistory     
+52 lines (37 sloc)  665 Bytes
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# Eclipse Core
+.project
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# JDT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
