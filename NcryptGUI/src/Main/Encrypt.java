@@ -1,5 +1,7 @@
 package Main;
 
+import java.nio.charset.Charset;
+
 public class Encrypt {
 	
 	final int segLenght = 2;
@@ -26,9 +28,12 @@ public class Encrypt {
 	
 	private String encrypt(String input, String key1, String key2){
 		byte[] data = input.getBytes();
+		
+		KeyMatrix matrix = new KeyMatrix(key1, key2);
 				
-		applyKey(data, key1);
-		applyKey(data, key2);
+		while(matrix.hasNext())
+			applyKey(data, matrix.getNext());
+		
 			
 		return new String(data);
 	}
@@ -57,6 +62,37 @@ public class Encrypt {
 			data[i] += data[data.length-1-i];
 		
 		return new String(data);
+	}
+	
+	class KeyMatrix{
+		
+		private String[] list;
+		
+		int width, height;
+		
+		private int current = 0;
+		
+		public KeyMatrix(String key1, String key2){
+			width = key1.length();
+			height = key2.length();
+			list = new String[width*height];
+			
+			for(int i=0; i<width; i++){
+				for(int j=0; j<height; j++){
+					list[(i*height)+j] = key1.toCharArray()[i]+""+key2.toCharArray()[j];
+				}
+			}
+		}
+		
+		public String getNext(){
+			String r = list[(width*height)-1-current];
+			current++;		
+			return r;
+		}
+		
+		public boolean hasNext(){
+			return current < list.length;
+		}
 	}
 
 }

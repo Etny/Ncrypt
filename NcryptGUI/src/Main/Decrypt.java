@@ -1,5 +1,9 @@
 package Main;
 
+import java.nio.charset.Charset;
+
+import Main.Encrypt.KeyMatrix;
+
 public class Decrypt {
 	
 	final int segLenght = 2;
@@ -27,8 +31,10 @@ public class Decrypt {
 	private String decrypt(String input, String key1, String key2){
 		byte[] data = input.getBytes();
 		
-		applyKey(data, key2);
-		applyKey(data, key1);
+		KeyMatrix matrix = new KeyMatrix(key1, key2);
+		
+		while(matrix.hasNext())
+			applyKey(data, matrix.getNext());
 				
 		return new String(data);
 	}
@@ -45,8 +51,8 @@ public class Decrypt {
 			int id = (resultData.length()-i-1)%data.length;
 			
 			if(num==0) continue;
-			
-			data[id] = (byte) (data[id]-num);
+
+			data[id] = (byte)(data[id]-num);
 		}
 	}
 	
@@ -57,6 +63,37 @@ public class Decrypt {
 			data[i] += data[data.length-1-i];
 		
 		return new String(data);
+	}
+	
+	class KeyMatrix{
+		
+		private String[] list;
+		
+		int width, height;
+		
+		private int current = 0;
+		
+		public KeyMatrix(String key1, String key2){
+			width = key1.length();
+			height = key2.length();
+			list = new String[width*height];
+			
+			for(int i=0; i<width; i++){
+				for(int j=0; j<height; j++){
+					list[(i*height)+j] = key1.toCharArray()[i]+""+key2.toCharArray()[j];
+				}
+			}
+		}
+		
+		public String getNext(){
+			String r = list[(width*height)-1-current];
+			current++;		
+			return r;
+		}
+		
+		public boolean hasNext(){
+			return current < list.length;
+		}
 	}
 
 }

@@ -31,6 +31,7 @@ public class Main implements ActionListener{
 	Decrypt decrypt = new Decrypt();
 	
 	public static void main(String[] args){
+		//System.setProperty("file.encoding", "ISO-8859-1");
 		new Main();
 	}
 	
@@ -91,6 +92,8 @@ public class Main implements ActionListener{
 			outputField.setText(decrypt.decryptString(inputField.getText(), pwField.getText()));
 		}else if(copyButton == e.getSource()){
 			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(new StringSelection(outputField.getText()), null);
+			
+			inputField.setText(outputField.getText());
 		}
 	}
 	
